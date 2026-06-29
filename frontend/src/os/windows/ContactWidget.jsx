@@ -70,7 +70,7 @@ export default function ContactWidget() {
           </div>
           <div className="p-3 border-t-2 border-dashed border-black bg-[#fffdd0]">
             <div className="font-silk text-[10px]">★ status</div>
-            <div className="mt-1">open to internships and small contracts. usually replies same day.</div>
+            <div className="mt-1">open to fun ideas and recruitment.usually replies within 24 hours! please wait.</div>
           </div>
         </div>
 
