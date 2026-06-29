@@ -1,0 +1,108 @@
+{
+  "theme": "LIGHT",
+  "archetype": "3 (Pastel & Soft) mixed with Retro/Neo-brutalism",
+  "typography": {
+    "headings": {
+      "fontFamily": "'Silkscreen', 'Press Start 2P', monospace",
+      "weights": ["400"],
+      "sizes": {
+        "h1": "text-4xl sm:text-5xl tracking-tighter",
+        "h2": "text-2xl sm:text-3xl",
+        "h3": "text-xl sm:text-2xl",
+        "h4": "text-lg sm:text-xl"
+      }
+    },
+    "body": {
+      "fontFamily": "'VT323', monospace",
+      "weights": ["400"],
+      "sizes": {
+        "base": "text-xl",
+        "small": "text-lg"
+      }
+    },
+    "instructions": "DO NOT USE Inter. Use 'Silkscreen' for window titles, desktop icons, taskbar, buttons. Use 'VT323' for long readable text (like the book chapters). Add Google Fonts import for 'Silkscreen' and 'VT323' in the CSS."
+  },
+  "colors": {
+    "desktop_bg": "#FFD1DC",
+    "window_bg": "#FFFFFF",
+    "taskbar_bg": "#FFB6C1",
+    "text_primary": "#000000",
+    "text_secondary": "#333333",
+    "borders": "#000000",
+    "accents": {
+      "hot_pink": "#FF69B4",
+      "cream": "#FFFDD0",
+      "pale_yellow": "#FFFACD",
+      "neon_green": "#39FF14"
+    }
+  },
+  "layout": {
+    "desktop": "h-screen w-screen relative overflow-hidden bg-[#FFD1DC]",
+    "window_borders": "border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]",
+    "button_borders": "border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-y-[2px] active:translate-x-[2px]"
+  },
+  "components": [
+    {
+      "name": "DesktopWindow",
+      "styles": "absolute bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col"
+    },
+    {
+      "name": "TitleBar",
+      "styles": "h-10 bg-[#FF69B4] text-black flex items-center justify-between px-2 font-silkscreen border-b-4 border-black cursor-move"
+    },
+    {
+      "name": "DesktopIcon",
+      "styles": "w-24 flex flex-col items-center gap-2 p-2 hover:bg-black/10 cursor-pointer text-center font-silkscreen text-sm leading-tight drop-shadow-md text-black"
+    },
+    {
+      "name": "Taskbar",
+      "styles": "fixed bottom-0 w-full h-12 bg-[#FFB6C1] border-t-4 border-black flex items-center px-2 gap-2 z-[9999]"
+    },
+    {
+      "name": "StartButton",
+      "styles": "flex items-center gap-2 bg-white px-3 py-1 border-2 border-black font-silkscreen hover:bg-[#FF69B4] text-black"
+    }
+  ],
+  "windows_content": {
+    "AI_Investor_Dashboard": "Finance dashboard window. Use pixel charts. Include text: Ingenium Hackathon Semifinalist, tech stack, GitHub link.",
+    "Gaming_Console": "Arcade UI window. Mention Bilions casino games (Slingo, Buffalo Gold Rush, Cleopatra), RatCode, Handwritten Digit Recognition. Use game cartridges as UI elements for project links.",
+    "Secret_Life_Book": "Book layout window. Must have chapters: 'The Less Secret Life', 'The Technical Life' (GPA 9.38), 'Why You Should Hire Me'. Avatar placeholder must stand beside the book.",
+    "Contact_Widget": "MSN Messenger style window. Include Email, Phone, LinkedIn, GitHub buttons. Add blinky status icons and a small chat form.",
+    "Photo_Gallery": "Polaroid-style frames of fashion looks. Draggable scattered polaroids.",
+    "Dress_up_Minigame": "Fashion easter egg window. Placeholder for avatar in center, with clickable pixel outfit items."
+  },
+  "media": {
+    "image_urls": [
+      {
+        "category": "user_avatar_reference",
+        "url": "https://customer-assets.emergentagent.com/job_pixel-arjun-studio/artifacts/z7mpjvio_fxn%202025-12-06%20001740.041.jpeg",
+        "description": "Reference selfie of Prarthana for the pixel avatar. NOTE: Leave a placeholder UI block for the avatar where needed."
+      },
+      {
+        "category": "gaming_console_decor",
+        "url": "https://images.unsplash.com/photo-1703319952271-a72d8995c336?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MTJ8MHwxfHNlYXJjaHwxfHxnYW1lYm95JTIwcGFzdGVsfGVufDB8fHx8MTc4Mjc0ODg0OXww&ixlib=rb-4.1.0&q=85",
+        "description": "Gameboy console reference for gaming section."
+      },
+      {
+        "category": "gallery_polaroid_decor",
+        "url": "https://images.unsplash.com/photo-1751089963860-f32206e41ebf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwxfHxwb2xhcm9pZCUyMHBpbmt8ZW58MHx8fHwxNzgyNzQ4ODQ5fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Polaroid camera reference for fashion gallery."
+      },
+      {
+        "category": "tech_dashboard_decor",
+        "url": "https://images.unsplash.com/photo-1628329336337-8c33a8f08ec1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MDV8MHwxfHNlYXJjaHwzfHxyZXRybyUyMGNvbXB1dGVyJTIwcGlua3xlbnwwfHx8fDE3ODI3NDg4NDB8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Retro computer reference for AI dashboard."
+      }
+    ]
+  },
+  "motion": {
+    "cursor": "Pixel crosshair or default Win98 arrow.",
+    "audio": "Optional chiptune BG music. Click sounds for interactions.",
+    "window_drag": "Windows MUST be fully draggable. You can implement this manually or use a library. Include bring-to-front z-index logic on click.",
+    "animations": "Avoid smooth UI transitions. Use hard cuts or step functions to replicate 2000s OS feel."
+  },
+  "accessibility": {
+    "testing": "All interactive elements MUST include a data-testid attribute in kebab-case."
+  },
+  "instructions_to_main_agent": "This is a React/Tailwind frontend-heavy app. You must build a Desktop Window Manager system where icons open draggable absolute-positioned div 'windows'. Implement a Tamagotchi view for mobile screens instead of the full desktop. Use lucide-react with strokeWidth 3 and sharp edges to fake pixel icons if custom SVG is missing. Use 'Silkscreen' font for UI and 'VT323' for long body text. Main palette: pastel pink desktop (#FFD1DC) and thick black borders (#000). Load Silkscreen and VT323 via Google Fonts. DO NOT create generic centered card layouts."
+}
