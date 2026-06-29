@@ -37,6 +37,7 @@ export default function Window({
 
   const onPointerDown = (e) => {
     if (maximized) return;
+    if (e.target.closest && e.target.closest("button")) return;
     dragging.current = true;
     const rect = dragRef.current.getBoundingClientRect();
     offset.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
