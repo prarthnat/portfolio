@@ -25,7 +25,7 @@ export default function BootScreen({ onDone }) {
         <span className="text-white">prarthna</span>OS
       </div>
       <div className="font-vt text-xl text-white/90 mb-8 text-center max-w-[80vw]">
-        loading <span className="blink">_</span> please wait while we boot the dream PC ♡
+        loading <span className="blink">_</span> preparing your session
       </div>
       <div className="w-72 sm:w-96 h-6 border-2 border-[#ff8fab] bg-black relative">
         <div
@@ -38,10 +38,10 @@ export default function BootScreen({ onDone }) {
         />
       </div>
       <div className="font-vt text-[#ff8fab] mt-3 text-sm">
-        {Math.min(100, progress)}% — installing lipgloss.dll
+        {Math.min(100, progress)}% — mounting /home/prarthna
       </div>
       <div className="absolute bottom-6 font-vt text-[#ff8fab] text-xs opacity-70">
-        © 2026 prarthna industries · all rights reserved (and resented if you don&apos;t hire her)
+        © 2026 prarthna industries · pixel-built portfolio v1.0
       </div>
     </div>
   );

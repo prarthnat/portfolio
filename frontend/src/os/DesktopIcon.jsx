@@ -74,6 +74,15 @@ const ICONS = {
       <rect x="20" y="13" width="2" height="10" fill="#000" />
     </svg>
   ),
+  music: (
+    <svg viewBox="0 0 32 32" width="36" height="36" shapeRendering="crispEdges">
+      <rect x="4" y="4" width="24" height="24" fill="#fff" stroke="#000" strokeWidth="2" />
+      <circle cx="16" cy="16" r="9" fill="#ff8fab" stroke="#000" strokeWidth="2" />
+      <circle cx="16" cy="16" r="2" fill="#000" />
+      <rect x="20" y="7" width="2" height="10" fill="#000" />
+      <rect x="22" y="7" width="3" height="3" fill="#000" />
+    </svg>
+  ),
   heart: (
     <svg viewBox="0 0 32 32" width="36" height="36" shapeRendering="crispEdges">
       <path d="M16 26 L4 14 Q4 8 10 8 Q13 8 16 12 Q19 8 22 8 Q28 8 28 14 Z" fill="#ff69b4" stroke="#000" strokeWidth="2" />
@@ -91,14 +100,14 @@ export default function DesktopIcon({ name, label, onOpen, testId, position }) {
       data-testid={testId}
       onDoubleClick={onOpen}
       onClick={onOpen}
-      className="absolute w-24 flex flex-col items-center gap-1 p-1 hover:bg-black/10 group focus:outline-none no-select"
+      className="absolute w-[88px] flex flex-col items-center gap-1 p-1 hover:bg-black/10 group focus:outline-none no-select"
       style={{ left: position?.x ?? 24, top: position?.y ?? 24 }}
     >
       <div className="icon-frame group-hover:bg-[#ffd1dc]">
         <PixelIcon name={name} />
       </div>
       <span
-        className="font-silk text-[10px] text-center text-black bg-white/70 border-2 border-black px-1 leading-tight group-hover:bg-[#ff69b4]"
+        className="font-silk text-[10px] text-center text-black bg-white/80 border-2 border-black px-1 leading-none whitespace-nowrap group-hover:bg-[#ff69b4]"
         style={{ textShadow: "1px 1px 0 #fff" }}
       >
         {label}

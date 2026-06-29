@@ -7,11 +7,11 @@ function PixelBars() {
   return (
     <div className="flex items-end gap-2 h-32 p-2 bg-white border-[3px] border-black pp-shadow">
       {heights.map((h, i) => (
-        <div key={i} className="flex flex-col items-center gap-1">
+        <div key={i} className="flex flex-col items-center gap-1 h-full justify-end">
           <div
             className="w-6 border-2 border-black"
             style={{
-              height: `${h}%`,
+              height: `${h}px`,
               background:
                 i % 2 === 0
                   ? "repeating-linear-gradient(to top, #ff69b4 0 4px, #ff8fab 4px 8px)"
@@ -29,10 +29,10 @@ export default function InvestorDashboard() {
   const proj = PROJECTS.find((p) => p.id === "ai-investor");
   const [tip, setTip] = useState(0);
   const tips = [
-    "tip ♡ diversify before you diva-fy.",
-    "tip ♡ index funds are unproblematic exes — boring but reliable.",
-    "tip ♡ if you can't explain it to your inner 14 year old, don't buy it.",
-    "tip ♡ small consistent investments > one heroic dump.",
+    "tip · diversify across asset classes — equities, debt, gold, a little cash.",
+    "tip · index funds are boring but reliable, like a good debug tool.",
+    "tip · if you can't explain the investment in two sentences, skip it.",
+    "tip · small consistent investments beat one big timed bet.",
   ];
 
   return (
@@ -89,7 +89,7 @@ export default function InvestorDashboard() {
       </div>
 
       <div className="mt-6 border-t-2 border-dashed border-black pt-3 font-silk text-[10px] text-[#666]">
-        ★ ingenium hackathon &apos;25 — semifinalist ★ built solo + with team, won hearts (and rounds)
+        ★ ingenium hackathon &apos;25 — semifinalist · 3-person team · 36 hours
       </div>
     </div>
   );

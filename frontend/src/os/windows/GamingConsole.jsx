@@ -52,7 +52,7 @@ export default function GamingConsole() {
           </div>
           <div className="flex flex-col items-center gap-2">
             <PixelAvatar variant="gamer" size={140} />
-            <div className="font-vt text-[#ff8fab] text-base">insert coin to continue ♡</div>
+            <div className="font-vt text-[#ff8fab] text-base">insert coin to continue</div>
           </div>
         </div>
       </div>

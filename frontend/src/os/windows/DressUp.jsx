@@ -8,9 +8,9 @@ export default function DressUp() {
 
   return (
     <div className="p-6 font-vt bg-[#ffd1dc] min-h-full">
-      <div className="font-silk text-xl mb-1">dress-up.exe ♡</div>
+      <div className="font-silk text-xl mb-1">dress-up.exe</div>
       <div className="text-base text-[#444] mb-4">
-        a little fashion easter egg. tap an outfit, change the vibe.
+        a small fashion easter egg. tap an outfit to change the vibe.
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div
@@ -44,8 +44,7 @@ export default function DressUp() {
             ))}
           </div>
           <div className="mt-4 bg-[#fffdd0] border-2 border-black p-3 text-base">
-            ★ fashion girl theorem: outfit = first impression. UI = second. <br />
-            i obsess over both.
+            i think about UI the same way I think about an outfit. silhouette first, details second, comfort always.
           </div>
         </div>
       </div>

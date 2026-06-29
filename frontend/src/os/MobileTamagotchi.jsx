@@ -4,10 +4,10 @@ import InvestorDashboard from "./windows/InvestorDashboard";
 import GamingConsole from "./windows/GamingConsole";
 import SecretLifeBook from "./windows/SecretLifeBook";
 import ContactWidget from "./windows/ContactWidget";
-import PhotoGallery from "./windows/PhotoGallery";
 import DressUp from "./windows/DressUp";
 import MyComputer from "./windows/MyComputer";
-import { PROFILE } from "./data";
+import MusicPlayer from "./windows/MusicPlayer";
+import { PROFILE, TRACKS } from "./data";
 
 const APPS = [
   { id: "computer", label: "computer", emoji: "💻" },
@@ -15,40 +15,48 @@ const APPS = [
   { id: "console", label: "arcade", emoji: "🎮" },
   { id: "book", label: "book", emoji: "📖" },
   { id: "contact", label: "contact", emoji: "✉" },
-  { id: "gallery", label: "gallery", emoji: "📸" },
+  { id: "music", label: "music", emoji: "♬" },
   { id: "dressup", label: "dress-up", emoji: "👗" },
 ];
 
-function renderApp(id, open) {
-  switch (id) {
-    case "computer":
-      return <MyComputer onOpen={open} />;
-    case "ai-investor":
-      return <InvestorDashboard />;
-    case "console":
-      return <GamingConsole />;
-    case "book":
-      return <SecretLifeBook />;
-    case "contact":
-      return <ContactWidget />;
-    case "gallery":
-      return <PhotoGallery />;
-    case "dressup":
-      return <DressUp />;
-    default:
-      return null;
-  }
-}
-
 export default function MobileTamagotchi() {
   const [active, setActive] = useState(null);
+  const [trackIdx, setTrackIdx] = useState(0);
+  const [soundOn, setSoundOn] = useState(false);
+
+  const renderApp = (id, open) => {
+    switch (id) {
+      case "computer":
+        return <MyComputer onOpen={open} />;
+      case "ai-investor":
+        return <InvestorDashboard />;
+      case "console":
+        return <GamingConsole />;
+      case "book":
+        return <SecretLifeBook />;
+      case "contact":
+        return <ContactWidget />;
+      case "music":
+        return (
+          <MusicPlayer
+            soundOn={soundOn}
+            onToggleSound={() => setSoundOn((s) => !s)}
+            trackIdx={trackIdx}
+            onPickTrack={setTrackIdx}
+          />
+        );
+      case "dressup":
+        return <DressUp />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <div
       data-testid="mobile-tamagotchi"
       className="min-h-screen w-full bg-[#ff8fab] flex flex-col items-center pt-6 pb-10 px-3 overflow-y-auto"
     >
-      {/* Tamagotchi shell */}
       <div className="w-full max-w-[420px] bg-[#ff69b4] border-[4px] border-black pp-shadow-lg rounded-t-[60px] rounded-b-[24px] p-4 relative">
         <div className="flex justify-center mb-2">
           <div className="w-16 h-2 bg-black rounded-full" />
@@ -57,7 +65,6 @@ export default function MobileTamagotchi() {
           ★ prarthnagotchi v1.0 ★
         </div>
 
-        {/* Screen */}
         <div className="bg-[#ffd1dc] border-[3px] border-black p-3 min-h-[460px]">
           {!active ? (
             <div>
@@ -100,7 +107,6 @@ export default function MobileTamagotchi() {
           )}
         </div>
 
-        {/* Buttons row */}
         <div className="flex justify-around mt-4">
           <button
             data-testid="tam-btn-A"
@@ -126,7 +132,7 @@ export default function MobileTamagotchi() {
         </div>
       </div>
       <div className="font-silk text-[10px] mt-4 text-black/80 text-center">
-        tap the screen apps · open on desktop for the full pixel mansion ♡
+        open on desktop for the full pixel OS
       </div>
     </div>
   );

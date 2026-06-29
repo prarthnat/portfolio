@@ -32,7 +32,7 @@ export default function ContactWidget() {
     } catch (err) {
       const detail = err?.response?.data?.detail;
       setStatus("error");
-      setErrorMsg(typeof detail === "string" ? detail : "could not send — try again in a sec");
+      setErrorMsg(typeof detail === "string" ? detail : "could not send — please try again.");
     }
   };
 
@@ -69,8 +69,8 @@ export default function ContactWidget() {
             ))}
           </div>
           <div className="p-3 border-t-2 border-dashed border-black bg-[#fffdd0]">
-            <div className="font-silk text-[10px]">★ status message</div>
-            <div className="mt-1">brb building something cute · taking on small contracts ♡</div>
+            <div className="font-silk text-[10px]">★ status</div>
+            <div className="mt-1">open to internships and small contracts. usually replies same day.</div>
           </div>
         </div>
 
@@ -91,7 +91,7 @@ export default function ContactWidget() {
                 className="pp-input w-full"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                placeholder="xX_recruiter_2026_Xx"
+                placeholder="your name"
               />
             </div>
             <div>
@@ -113,7 +113,7 @@ export default function ContactWidget() {
                 className="pp-input w-full"
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                placeholder="hi prarthna, we want to hire you because…"
+                placeholder="hi prarthna, we&apos;d like to chat about…"
               />
             </div>
             {status === "error" && (
@@ -123,7 +123,7 @@ export default function ContactWidget() {
             )}
             {status === "sent" && (
               <div data-testid="contact-success" className="text-black font-silk text-[10px] bg-[#39ff14] border-2 border-black px-2 py-1 inline-block">
-                ★ message delivered! check your inbox for the reply ♡
+                ★ message sent. she&apos;ll reply by email soon.
               </div>
             )}
           </div>
@@ -145,3 +145,4 @@ export default function ContactWidget() {
     </div>
   );
 }
+

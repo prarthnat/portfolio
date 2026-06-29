@@ -12,13 +12,13 @@ export default function SecretLifeBook() {
         The Secret Life of Prarthna
       </div>
       <div className="font-vt text-center text-[#444] -mt-1">
-        a less secret · a technical · an all-about-me anthology
+        an anthology in three short chapters
       </div>
 
       <div className="mt-4 grid grid-cols-1 md:grid-cols-[160px_1fr] gap-4 items-start">
         <div className="flex flex-col items-center gap-2">
           <PixelAvatar variant="book" size={150} />
-          <div className="font-silk text-[10px] text-center">our protagonist ♡</div>
+          <div className="font-silk text-[10px] text-center">our protagonist</div>
         </div>
 
         <div
