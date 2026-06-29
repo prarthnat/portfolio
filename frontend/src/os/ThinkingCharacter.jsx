@@ -28,8 +28,8 @@ const THOUGHTS = {
     body: "i obsess over UI the way I obsess over outfits. tiny easter egg.",
   },
   music: {
-    head: "music.exe",
-    body: "an actual chiptune mini-loop, made with WebAudio. press play. it loops so it's not annoying.",
+    head: "i am... · music",
+    body: "press play on any song — a chiptune cover plays in your browser. tap YouTube to hear the original. each song is a trait i'd bring to your team.",
   },
 };
 

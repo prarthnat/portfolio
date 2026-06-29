@@ -132,13 +132,88 @@ export const OUTFITS = [
   { id: "denim", name: "Soft Denim", color: "#b9d6f2", emoji: "👖" },
 ];
 
-// Music player tracks (visual only — audio is synth-loop driven by AudioContext)
+// Music tracks — "I am..." playlist. Each track is a REAL song that describes
+// a trait. We play a track-specific chiptune cover in-browser (chord progression
+// only, so no copyright issues) and link out to YouTube/Spotify for the original.
 export const TRACKS = [
-  { id: "lipgloss", title: "lipgloss.dll", artist: "prarthnaOS", duration: "01:14" },
-  { id: "after-hours", title: "after-hours debug", artist: "prarthnaOS", duration: "02:02" },
-  { id: "mall-walk", title: "mall walk 2003", artist: "prarthnaOS", duration: "01:38" },
-  { id: "boot-up", title: "boot-up dreamscape", artist: "prarthnaOS", duration: "01:51" },
+  {
+    id: "resilient",
+    trait: "i am resilient",
+    title: "Resilient",
+    artist: "Katy Perry",
+    duration: "03:38",
+    youtube: "https://www.youtube.com/results?search_query=Resilient+Katy+Perry+official",
+    spotify: "https://open.spotify.com/search/Resilient%20Katy%20Perry",
+    note: "moves a lot. still smiling.",
+    // F - C - Am - Bb (uplifting major)
+    chords: [
+      [349.23, 440.0, 523.25, 698.46], // F
+      [261.63, 329.63, 392.0, 523.25], // C
+      [220.0, 261.63, 329.63, 440.0],  // Am
+      [233.08, 293.66, 349.23, 466.16],// Bb
+    ],
+    bass: [87.31, 130.81, 110.0, 116.54],
+    tempoMs: 220,
+  },
+  {
+    id: "patient",
+    trait: "i am patient",
+    title: "Patient",
+    artist: "Charlie Puth",
+    duration: "03:12",
+    youtube: "https://www.youtube.com/results?search_query=Patient+Charlie+Puth",
+    spotify: "https://open.spotify.com/search/Patient%20Charlie%20Puth",
+    note: "good debugger, better listener.",
+    chords: [
+      [293.66, 349.23, 440.0, 587.33], // Dm
+      [220.0, 261.63, 329.63, 440.0],  // Am
+      [349.23, 440.0, 523.25, 698.46], // F
+      [261.63, 329.63, 392.0, 523.25], // C
+    ],
+    bass: [73.42, 110.0, 87.31, 130.81],
+    tempoMs: 320,
+  },
+  {
+    id: "hardworking",
+    trait: "i am a hard-working woman",
+    title: "Hard Workin' Man",
+    artist: "Brooks & Dunn",
+    duration: "03:24",
+    youtube: "https://www.youtube.com/results?search_query=Hard+Workin+Man+Brooks+and+Dunn",
+    spotify: "https://open.spotify.com/search/Hard%20Workin%27%20Man%20Brooks%20%26%20Dunn",
+    note: "internships weren't for the resume.",
+    chords: [
+      [196.0, 246.94, 293.66, 392.0],  // G
+      [293.66, 369.99, 440.0, 587.33], // D
+      [261.63, 329.63, 392.0, 523.25], // C
+      [196.0, 246.94, 293.66, 392.0],  // G
+    ],
+    bass: [98.0, 73.42, 65.41, 98.0],
+    tempoMs: 180,
+  },
+  {
+    id: "team-player",
+    trait: "i am a team player",
+    title: "Team Player",
+    artist: "Marco Beltrami, Buck Sanders",
+    duration: "02:41",
+    youtube: "https://www.youtube.com/results?search_query=Team+Player+Marco+Beltrami+Buck+Sanders",
+    spotify: "https://open.spotify.com/search/Team%20Player%20Marco%20Beltrami",
+    note: "hackathons, casino backend, group projects — show up, ship.",
+    chords: [
+      [261.63, 311.13, 392.0, 523.25], // Cm
+      [196.0, 233.08, 293.66, 392.0],  // Gm
+      [311.13, 392.0, 466.16, 622.25], // Eb
+      [233.08, 293.66, 349.23, 466.16],// Bb
+    ],
+    bass: [65.41, 98.0, 77.78, 116.54],
+    tempoMs: 260,
+  },
 ];
+
+export const STICKY_NOTE = {
+  body: "ship something small today.\nthen ship one more.\n— p",
+};
 
 // Thoughts the character says when no project is active
 export const IDLE_THOUGHTS = [

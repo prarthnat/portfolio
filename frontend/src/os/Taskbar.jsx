@@ -7,8 +7,8 @@ export default function Taskbar({
   onFocus,
   onToggleStart,
   startOpen,
-  onSoundToggle,
-  soundOn,
+  theme,
+  onThemeToggle,
 }) {
   const [time, setTime] = useState(new Date());
   useEffect(() => {
@@ -17,16 +17,23 @@ export default function Taskbar({
   }, []);
   const hh = time.getHours().toString().padStart(2, "0");
   const mm = time.getMinutes().toString().padStart(2, "0");
+  const isDark = theme === "dark";
 
   return (
     <div
       data-testid="taskbar"
-      className="fixed bottom-0 left-0 right-0 h-14 bg-[#ffb6c1] border-t-[3px] border-black flex items-center gap-2 px-2 z-[9999] no-select"
+      className={`fixed bottom-0 left-0 right-0 h-14 border-t-[3px] border-black flex items-center gap-2 px-2 z-[9999] no-select ${
+        isDark ? "bg-[#3a1226]" : "bg-[#ffb6c1]"
+      }`}
       style={{ boxShadow: "0 -3px 0 0 rgba(0,0,0,0.15)" }}
     >
       <button
+        type="button"
         data-testid="start-button"
-        onClick={(e) => { e.stopPropagation(); onToggleStart(); }}
+        onClick={(e) => {
+          e.stopPropagation();
+          onToggleStart();
+        }}
         className={`pp-btn flex items-center gap-2 h-10 ${startOpen ? "bg-[#ff69b4]" : ""}`}
       >
         <span aria-hidden>♥</span>
@@ -37,6 +44,7 @@ export default function Taskbar({
           .filter((w) => !w.closed)
           .map((w) => (
             <button
+              type="button"
               key={w.id}
               data-testid={`taskbar-item-${w.id}`}
               onClick={() => onFocus(w.id)}
@@ -52,12 +60,13 @@ export default function Taskbar({
           ))}
       </div>
       <button
-        data-testid="taskbar-sound"
-        onClick={onSoundToggle}
+        type="button"
+        data-testid="taskbar-theme"
+        onClick={onThemeToggle}
         className="pp-btn h-9"
-        title="toggle sound"
+        title="toggle midnight pink"
       >
-        {soundOn ? "♪ on" : "♪ off"}
+        {isDark ? "☾ midnight" : "☀ pastel"}
       </button>
       <div
         data-testid="taskbar-clock"

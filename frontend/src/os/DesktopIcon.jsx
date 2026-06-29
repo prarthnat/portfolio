@@ -94,9 +94,10 @@ export function PixelIcon({ name }) {
   return ICONS[name] || ICONS.heart;
 }
 
-export default function DesktopIcon({ name, label, onOpen, testId, position }) {
+export default function DesktopIcon({ name, label, onOpen, testId, position, dark }) {
   return (
     <button
+      type="button"
       data-testid={testId}
       onDoubleClick={onOpen}
       onClick={onOpen}
@@ -107,8 +108,12 @@ export default function DesktopIcon({ name, label, onOpen, testId, position }) {
         <PixelIcon name={name} />
       </div>
       <span
-        className="font-silk text-[10px] text-center text-black bg-white/80 border-2 border-black px-1 leading-none whitespace-nowrap group-hover:bg-[#ff69b4]"
-        style={{ textShadow: "1px 1px 0 #fff" }}
+        className={`font-silk text-[10px] text-center border-2 border-black px-1 leading-none whitespace-nowrap group-hover:bg-[#ff69b4] ${
+          dark
+            ? "bg-black/70 text-[#ffd1dc] border-[#ff8fab]"
+            : "bg-white/80 text-black"
+        }`}
+        style={{ textShadow: dark ? "1px 1px 0 #000" : "1px 1px 0 #fff" }}
       >
         {label}
       </span>

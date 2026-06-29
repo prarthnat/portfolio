@@ -8,6 +8,7 @@ import DressUp from "./windows/DressUp";
 import MyComputer from "./windows/MyComputer";
 import MusicPlayer from "./windows/MusicPlayer";
 import { PROFILE, TRACKS } from "./data";
+import { useAudioEngine } from "./useAudioEngine";
 
 const APPS = [
   { id: "computer", label: "computer", emoji: "💻" },
@@ -22,7 +23,9 @@ const APPS = [
 export default function MobileTamagotchi() {
   const [active, setActive] = useState(null);
   const [trackIdx, setTrackIdx] = useState(0);
-  const [soundOn, setSoundOn] = useState(false);
+  const [playingId, setPlayingId] = useState(null);
+  const playingTrack = TRACKS.find((t) => t.id === playingId) || null;
+  useAudioEngine({ playingTrack });
 
   const renderApp = (id, open) => {
     switch (id) {
@@ -39,10 +42,11 @@ export default function MobileTamagotchi() {
       case "music":
         return (
           <MusicPlayer
-            soundOn={soundOn}
-            onToggleSound={() => setSoundOn((s) => !s)}
             trackIdx={trackIdx}
             onPickTrack={setTrackIdx}
+            playingId={playingId}
+            onPlay={setPlayingId}
+            onStop={() => setPlayingId(null)}
           />
         );
       case "dressup":

@@ -6,7 +6,7 @@ export default function MyComputer({ onOpen }) {
     { id: "ai-investor", label: "(C:) projects", note: "AI investor dashboard & more" },
     { id: "console", label: "(G:) arcade", note: "casino backend, ML, code tools" },
     { id: "book", label: "(D:) about-me", note: "read the long form" },
-    { id: "music", label: "(M:) pinky player", note: "live synth chiptune" },
+    { id: "music", label: "(M:) music", note: "i am... playlist" },
     { id: "contact", label: "(F:) inbox", note: "send a message" },
     { id: "dressup", label: "(X:) dress-up", note: "tiny easter egg" },
   ];
