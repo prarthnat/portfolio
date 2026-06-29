@@ -1,0 +1,38 @@
+{
+  "summary": "PrarthnaOS portfolio - both backend and frontend tested. All 6 backend pytest tests pass on REACT_APP_BACKEND_URL. Frontend e2e flows verified across desktop (1920x900) and mobile (390x844) viewports. Found and fixed one click-bubbling bug in Taskbar.jsx that prevented the Start menu from opening.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Desktop boot", "issues": ["Auto-opened My Computer window (positioned at x=60,y=40,w=560,h=520) visually overlaps the first six desktop icons (computer, ai-investor, console, book, contact, gallery). Icons remain technically clickable (force/native DOM), but a human user would have to drag/close the window before they can double-click those icons. Consider offsetting My Computer to the right or placing icons in a column that does not overlap the default window position."]}
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_prarthna_backend.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "Optional: reposition default My Computer window or icon column so icons aren't visually covered at boot (only a UX polish; functionally fine)."
+  ],
+  "critical_code_review_comments": [
+    "Desktop.jsx wrapper has `onClick={() => setStartOpen(false)}`. The Taskbar's start-button click bubbled to this handler and immediately closed the menu. Fixed by adding e.stopPropagation() inside the start-button onClick in Taskbar.jsx. The same pattern (bubbling close) could in future affect any new taskbar control; consider scoping the close-on-click to clicks whose target is the desktop background (e.target === e.currentTarget).",
+    "DesktopIcon binds BOTH onClick and onDoubleClick to onOpen. Combined with openApp's idempotent setWindows logic this is fine, but double-firing wastes a renders & plays the chiptune twice on every double-click.",
+    "server.py CORS middleware is added AFTER include_router; in Starlette/Starlette-FastAPI this still works (middleware runs around the whole app) but conventional order is middleware-before-router for readability.",
+    "Server-side timestamps are stored as ISO strings then parsed back to datetime on GET; consistent and avoids Mongo BSON datetime quirks (good)."
+  ],
+  "updated_files": [
+    "/app/frontend/src/os/Taskbar.jsx (added e.stopPropagation in start-button onClick)",
+    "/app/backend/tests/test_prarthna_backend.py (new pytest suite)"
+  ],
+  "success_rate": {"backend": "100% (6/6)", "frontend": "100% after fix (all required flows verified)"},
+  "test_credentials": "n/a - no auth",
+  "seed_data_creation": "Each pytest run inserts one TEST_ guestbook entry and one contact_messages doc (uses random uuid emails). No cleanup endpoint exists; volume is negligible.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Backend at REACT_APP_BACKEND_URL/api/{root,contact,guestbook,status}. /api/contact and /api/guestbook return 200 (not 201) with the inserted object containing id+timestamp. Validation errors are 422. Frontend: desktop renders only when innerWidth >= 768; My Computer auto-opens after a ~3s boot. Default My Computer window obscures icons 1-6 - prefer programmatic DOM .click() via page.evaluate when automating icon opens, or close window-computer first. data-testids follow kebab-case: icon-*, window-*, window-close-*, taskbar-item-*, start-*, cartridge-*, book-*, investor-tip-next, contact-*, outfit-*, pixel-avatar-*, mobile-*. Avatar images at /avatars/avatar_main.png load OK (no fallback needed in this run).",
+  "rca_of_the_issue": "Start menu bug: Desktop wrapper has onClick that sets startOpen=false to close start menu when clicking elsewhere. Because the Taskbar (and its start-button) are children of this wrapper, the click event bubbled from the start-button through to the wrapper, closing the menu in the same tick it was opened. Repro: page.click('[data-testid=start-button]'); start-menu never appears in DOM. Fix applied: stopPropagation on the start-button's onClick in /app/frontend/src/os/Taskbar.jsx."
+}
