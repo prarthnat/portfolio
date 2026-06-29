@@ -12,6 +12,7 @@ import ContactWidget from "./windows/ContactWidget";
 import DressUp from "./windows/DressUp";
 import MyComputer from "./windows/MyComputer";
 import MusicPlayer from "./windows/MusicPlayer";
+import RecycleBin from "./windows/RecycleBin";
 import { PROFILE, TRACKS } from "./data";
 import { useAudioEngine } from "./useAudioEngine";
 
@@ -23,6 +24,7 @@ const APPS = {
   contact: { title: "Contact ♡ Messenger", icon: "contact", initial: { x: 260, y: 80, w: 760, h: 540 } },
   music: { title: "i am... · music", icon: "music", initial: { x: 280, y: 100, w: 660, h: 600 } },
   dressup: { title: "dress-up.exe", icon: "dressup", initial: { x: 300, y: 60, w: 720, h: 540 } },
+  bin: { title: "Recycle Bin", icon: "bin", initial: { x: 320, y: 80, w: 640, h: 500 } },
 };
 
 const ICON_LAYOUT = [
@@ -63,7 +65,6 @@ export default function Desktop() {
   const openApp = useCallback((id) => {
     click();
     setStartOpen(false);
-    if (id === "bin") return;
     const meta = APPS[id];
     if (!meta) return;
     setWindows((prev) => {
@@ -322,6 +323,8 @@ function renderAppBody(id, ctx) {
       );
     case "dressup":
       return <DressUp />;
+    case "bin":
+      return <RecycleBin />;
     default:
       return null;
   }

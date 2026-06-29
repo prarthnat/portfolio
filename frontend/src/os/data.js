@@ -142,8 +142,8 @@ export const TRACKS = [
     title: "Resilient",
     artist: "Katy Perry",
     duration: "03:38",
-    youtube: "https://www.youtube.com/results?search_query=Resilient+Katy+Perry+official",
-    spotify: "https://open.spotify.com/search/Resilient%20Katy%20Perry",
+    youtube: "https://www.youtube.com/watch?v=cmySl30xKTk",
+    spotify: "https://open.spotify.com/track/3By64Pmpn0LkwPKSjqSTBp",
     note: "moves a lot. still smiling.",
     // F - C - Am - Bb (uplifting major)
     chords: [
@@ -161,8 +161,8 @@ export const TRACKS = [
     title: "Patient",
     artist: "Charlie Puth",
     duration: "03:12",
-    youtube: "https://www.youtube.com/results?search_query=Patient+Charlie+Puth",
-    spotify: "https://open.spotify.com/search/Patient%20Charlie%20Puth",
+    youtube: "https://www.youtube.com/watch?v=Qcg8vFkNUdA",
+    spotify: "https://open.spotify.com/track/4jsGYwKefMilvu6mg82PAA",
     note: "good debugger, better listener.",
     chords: [
       [293.66, 349.23, 440.0, 587.33], // Dm
@@ -179,8 +179,8 @@ export const TRACKS = [
     title: "Hard Workin' Man",
     artist: "Brooks & Dunn",
     duration: "03:24",
-    youtube: "https://www.youtube.com/results?search_query=Hard+Workin+Man+Brooks+and+Dunn",
-    spotify: "https://open.spotify.com/search/Hard%20Workin%27%20Man%20Brooks%20%26%20Dunn",
+    youtube: "https://www.youtube.com/watch?v=VcXg8RrylII",
+    spotify: "https://open.spotify.com/track/51uGoXB3PbXLyeH0aPGo7H",
     note: "internships weren't for the resume.",
     chords: [
       [196.0, 246.94, 293.66, 392.0],  // G
@@ -197,8 +197,8 @@ export const TRACKS = [
     title: "Team Player",
     artist: "Marco Beltrami, Buck Sanders",
     duration: "02:41",
-    youtube: "https://www.youtube.com/results?search_query=Team+Player+Marco+Beltrami+Buck+Sanders",
-    spotify: "https://open.spotify.com/search/Team%20Player%20Marco%20Beltrami",
+    youtube: "https://www.youtube.com/watch?v=Yk6-dsFaWx4",
+    spotify: "https://open.spotify.com/track/5wQmdmpGIa5IxhSLV7AphQ",
     note: "hackathons, casino backend, group projects — show up, ship.",
     chords: [
       [261.63, 311.13, 392.0, 523.25], // Cm

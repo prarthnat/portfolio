@@ -29,7 +29,11 @@ const THOUGHTS = {
   },
   music: {
     head: "i am... · music",
-    body: "press play on any song — a chiptune cover plays in your browser. tap YouTube to hear the original. each song is a trait i'd bring to your team.",
+    body: "press play — chiptune cover plays in your browser. YouTube / Spotify open the real song with one tap.",
+  },
+  bin: {
+    head: "recycle bin",
+    body: "deleted, but archived. these are the doubts I trashed so the code could ship. press 'empty bin' for confetti.",
   },
 };
 
